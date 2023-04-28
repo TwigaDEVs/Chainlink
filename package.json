@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/TwigaDEVs/HackTrustHackathon/issues"
   },
-  "homepage": "https://github.com/TwigaDEVs/HackTrustHackathon#readme"
+  "homepage": "https://github.com/TwigaDEVs/HackTrustHackathon#readme",
+  "dependencies": {
+    "truffle": "^5.8.4"
+  }
 }
