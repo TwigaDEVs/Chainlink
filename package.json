@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/TwigaDEVs/HackTrustHackathon/issues"
   },
-  "homepage": "https://github.com/TwigaDEVs/HackTrustHackathon#readme"
+  "homepage": "https://github.com/TwigaDEVs/HackTrustHackathon#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "ganache": "^7.8.0",
+    "mocha": "^10.2.0",
+    "solc": "^0.8.19",
+    "truffle": "^5.1.65"
+  }
 }
