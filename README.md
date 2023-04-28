@@ -1,9 +1,16 @@
 # Polygon Hackathon
-##Environment Setup;
 
+## Environment Setup;
+
+            *Solidity*
             npm install -g solc
+            
+            *Truffle*
             npm install -g truffle
                     truffle version
+                    
+            *Ganache*
+            Download Package from https://www.trufflesuite.com/ganache
 
 
 
@@ -11,8 +18,8 @@
 
 Key Points;
 
-   -Donation
-   -Transportation
-   -Storage
-   -Distribution
+   - Donation
+   - Transportation
+   - Storage
+   - Distribution
      
