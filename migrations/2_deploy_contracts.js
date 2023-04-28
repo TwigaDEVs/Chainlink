@@ -1,5 +1,5 @@
-var Financial = artifacts.require("./Financial.sol");
+var FinancialTrackingSystem = artifacts.require("./FinancialTrackingSystem.sol");
 
 module.exports = function(deployer) {
-    deployer.deploy(Financial);
+    deployer.deploy(FinancialTrackingSystem);
 };
