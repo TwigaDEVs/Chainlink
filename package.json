@@ -1,0 +1,24 @@
+{
+  "name": "hacking-for-trust",
+  "version": "1.0.0",
+  "description": "Impact Plus and Polygon hackathon for trust",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TwigaDEVs/HackTrustHackathon.git"
+  },
+  "keywords": [
+    "Hacking",
+    "for",
+    "trust"
+  ],
+  "author": "Twiga Devs - Nakul R. Padalkar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TwigaDEVs/HackTrustHackathon/issues"
+  },
+  "homepage": "https://github.com/TwigaDEVs/HackTrustHackathon#readme"
+}
