@@ -30,6 +30,7 @@
     "truffle": "^5.1.65"
   },
   "devDependencies": {
+    "hardhat": "^2.14.0",
     "lite-server": "^2.6.1"
   }
 }
