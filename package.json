@@ -22,6 +22,10 @@
   },
   "homepage": "https://github.com/TwigaDEVs/HackTrustHackathon#readme",
   "dependencies": {
-    "truffle": "^5.8.4"
+    "chai": "^4.3.7",
+    "ganache": "^7.8.0",
+    "mocha": "^10.2.0",
+    "solc": "^0.8.19",
+    "truffle": "^5.1.65"
   }
 }
