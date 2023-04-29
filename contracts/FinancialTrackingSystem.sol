@@ -37,7 +37,7 @@ contract FinancialTrackingSystem {
 
     //  creating new transactions
     function createTransaction(address _donor, address _usaid, uint256 _amount, string memory _purpose) public {
-        require(_donor!=_usaid, "Donor can not be same as USAID");
+        require(_donor != _usaid, "Donor can not be same as USAID");
         Transaction memory newTransaction = Transaction({
             donor: _donor,
             usaid: _usaid,

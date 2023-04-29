@@ -3,8 +3,8 @@ console.log(abi);
 
 var contract = new web3.eth.Contract(
   abi,
-  // "0xDCf17382aA489681048F6D92918158C8E0A03Ea2" // Felix's contract
-  "0x631a834893100793B0b4b70303BcABe10493336a" // Nakul's contract
+  "0xDCf17382aA489681048F6D92918158C8E0A03Ea2" // Felix's contract
+  // "0x631a834893100793B0b4b70303BcABe10493336a" // Nakul's contract
 );
 
 const connectWallet = async () => {
@@ -39,6 +39,30 @@ async function createDonorTransaction() {
       console.log(data);
     });
 }
+
+function getEvents() {
+  const eventName = "MyEvent";
+
+  // Set up a variable for the filter options
+  const filterOptions = {
+    fromBlock: 0, // The block number to start looking for events (0 = the genesis block)
+    toBlock: "latest", // The block number to stop looking for events (latest = the most recent block)
+    filter: {}, // An object containing any filter criteria you want to apply to the events (optional)
+  };
+
+  // Call the getPastEvents function with the event name and filter options
+  contract.getPastEvents(eventName, filterOptions, (error, events) => {
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    // Do something with the events
+    console.log(events);
+  });
+}
+
+getEvents();
 
 function viewTransactions() {
   const transactions = [];
