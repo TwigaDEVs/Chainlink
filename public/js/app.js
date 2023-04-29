@@ -93,7 +93,10 @@ function viewTransactions() {
         table.appendChild(row);
       });
 
-      // Add the table to the HTML document
-      document.body.appendChild(table);
+      // Add the table to a wrapper div with overflow-x:auto
+      const wrapperDiv = document.createElement("div");
+      wrapperDiv.style.overflowX = "auto";
+      wrapperDiv.appendChild(table);
+      document.body.appendChild(wrapperDiv);
     });
 }

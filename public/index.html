@@ -5,21 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./css/w3.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Document</title>
-    <style>
-      table th,
-      table td {
-        border: 1px solid #ccc;
-      }
-    </style>
   </head>
   <body>
     <div class="w3-bar w3-padding">
       <span class="w3-bar-item" style="padding: 0; margin: 0; font-size: 23px"
-        ><b>Finance Tracker</b></span
-      >
-      <a href="" class="w3-btn w3-bar-item">Home</a>
-      <a href="" class="w3-btn w3-bar-item">Donate</a>
+        ><b>Finance Tracker</b></span>
+      <a href="./index.html" class="w3-btn w3-bar-item">Home</a>
+      <a href="./add-donation.html" class="w3-btn w3-bar-item">Donate</a>
       <div class="w3-right">
         <button class="w3-bar-item w3-btn w3-blue" onclick="connectWallet()">
           Connect Wallet
@@ -32,12 +40,14 @@
     <div class="w3-auto">
       <h4><b>Donations</b></h4>
     </div>
+    <div class="table-responsive custom-table-responsive"></div>
 
+      <table class="table custom-table"></table>
     <script src="./js/web3.min.js"></script>
     <script src="./js/abi.js"></script>
     <script src="./js/app.js"></script>
     <script>
-      viewTransactions();
+      viewTransactions(); /*Find a way to make it a responsive table*/
     </script>
   </body>
 </html>
