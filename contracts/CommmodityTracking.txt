@@ -1,0 +1,74 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract CommodityTracking {
+    // Define the commodity struct
+    struct Commodity {
+        string name;
+        uint quantity;
+        uint currentProcess;
+        mapping(uint => address) stakeholders;
+        mapping(uint => uint) timestamps;
+    }
+
+    // Define the list of processes
+    enum Process {
+        ProjectStartUp,
+        SalesOrders,
+        Procurement,
+        OceanShipment,
+        PortOperations,
+        Transport,
+        Warehousing,
+        Distribution,
+        FoodDistributionMonitoring,
+        CloseOut,
+        InternalControlAndQualityOversight,
+        InternalLosses
+    }
+
+    // Define the list of stakeholders
+    enum Stakeholder {
+        ProgramManagement,
+        ServiceProviders,
+        USDA,
+        OceanCarriers,
+        PortAuthorities,
+        Transporters,
+        WarehouseManagers,
+        SiteCoordinators,
+        Monitors,
+        Recipients,
+        LossInvestigations,
+        Claims
+    }
+
+    // Define the list of commodity instances
+    Commodity[] public commodities;
+
+    // Define the function to create a new commodity instance
+    function createCommodity(string memory _name, uint _quantity) public {
+        Commodity memory commodity = Commodity({
+            name: _name,
+            quantity: _quantity,
+            currentProcess: uint(Process.ProjectStartUp)
+        });
+        commodities.push(commodity);
+    }
+
+    // Define the function to update the current process of a commodity instance
+    function updateProcess(uint _commodityIndex, uint _processIndex, address _stakeholder) public {
+        require(_commodityIndex < commodities.length, "Commodity does not exist");
+        require(_processIndex <= uint(Process.InternalLosses), "Invalid process index");
+
+        Commodity storage commodity = commodities[_commodityIndex];
+        require(commodity.currentProcess < _processIndex, "Cannot update to an earlier process");
+
+        // Add the stakeholder and timestamp to the commodity's process history
+        commodity.stakeholders[_processIndex] = _stakeholder;
+        commodity.timestamps[_processIndex] = block.timestamp;
+
+        // Update the current process of the commodity
+        commodity.currentProcess = _processIndex;
+    }
+}

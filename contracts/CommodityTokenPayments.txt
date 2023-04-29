@@ -1,0 +1,68 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract CommodityToken is ERC20 {
+    address public owner;
+    mapping(address => uint256) public balances;
+    mapping(address => mapping(address => uint256)) public allowances;
+    uint256 public totalSupply;
+
+    constructor() ERC20("Commodity Token", "CTK") {
+        owner = msg.sender;
+        totalSupply = 0;
+    }
+
+    function mint(address account, uint256 amount) public {
+        require(msg.sender == owner, "Only the contract owner can mint tokens");
+        _mint(account, amount);
+        balances[account] += amount;
+        totalSupply += amount;
+    }
+
+    function transfer(address recipient, uint256 amount) public override returns (bool) {
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+        balances[msg.sender] -= amount;
+        balances[recipient] += amount;
+        emit Transfer(msg.sender, recipient, amount);
+        return true;
+    }
+
+    function approve(address spender, uint256 amount) public override returns (bool) {
+        allowances[msg.sender][spender] = amount;
+        emit Approval(msg.sender, spender, amount);
+        return true;
+    }
+
+    function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+        require(balances[sender] >= amount, "Insufficient balance");
+        require(allowances[sender][msg.sender] >= amount, "Allowance exceeded");
+        balances[sender] -= amount;
+        balances[recipient] += amount;
+        allowances[sender][msg.sender] -= amount;
+        emit Transfer(sender, recipient, amount);
+        return true;
+    }
+
+    function buyCommodity() public payable {
+        uint256 amount = msg.value;
+        require(amount > 0, "Must send some Ether");
+        uint256 tokensToBuy = amount / 1 ether; // 1 ether = 1 CTK
+        require(tokensToBuy <= balances[owner], "Insufficient token balance");
+        balances[msg.sender] += tokensToBuy;
+        balances[owner] -= tokensToBuy;
+        emit Transfer(owner, msg.sender, tokensToBuy);
+    }
+
+    function sellCommodity(uint256 amount) public {
+        require(amount > 0, "Amount must be greater than zero");
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+        uint256 maticToReceive = amount * 1 ether; // 1 ether = 1 CTK
+        require(address(this).balance >= maticToReceive, "Contract balance insufficient");
+        balances[msg.sender] -= amount;
+        balances[owner] += amount;
+        payable(msg.sender).transfer(maticToReceive);
+        emit Transfer(msg.sender, owner, amount);
+    }
+}
