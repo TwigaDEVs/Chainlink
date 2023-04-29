@@ -97,5 +97,3 @@ function viewTransactions() {
       document.body.appendChild(table);
     });
 }
-
-viewTransactions();
