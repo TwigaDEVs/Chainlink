@@ -178,23 +178,13 @@ contract FinancialTrackingSystem {
     function getDisbursedTransactionsCount() public view returns (uint256) {
         return disbursedTransactions.length;
     }
+
+}
     contract ChiToken {
         function wrap() public payable {}
         function transfer(address _recipient, uint256 _amount) public {}
-    }
 
-    // Fusion Protocol
-    contract Fusion {
-        // define a struct to represent a fusion transaction
-        struct FusionTransaction {
-            address sender;
-            address receiver;
-            uint256 amount;
-            uint256 timestamp;
-        }
-    }
-
-    // define an array to store all the fusion transactions
+         // define an array to store all the fusion transactions
     FusionTransaction[] fusionTransactions;
 
     // define an event to emit when a new fusion transaction is created
@@ -229,3 +219,15 @@ contract FinancialTrackingSystem {
 
 
 }
+    }
+
+    // Fusion Protocol
+    contract Fusion {
+        // define a struct to represent a fusion transaction
+        struct FusionTransaction {
+            address sender;
+            address receiver;
+            uint256 amount;
+            uint256 timestamp;
+        }
+    }
