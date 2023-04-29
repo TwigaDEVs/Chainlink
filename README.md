@@ -188,3 +188,33 @@ Note that these timelines and stakeholders are approximate and may vary dependin
 | 1    | Ongoing          | Implementing partners, USAID |
 | 2    | Ongoing          | Implementing partners, USAID |
 | 3    | 60-90            | Implementing partners, USAID |
+
+
+# Sample Use Cases
+
+## Donor Tracking 
+
+```plantuml
+@startuml
+        actor Donor
+        actor Award Requesting Entity
+        actor USAID
+        actor Recipient
+        participant Smart Contract
+        participant Polygon
+
+        Donor -> Smart Contract: Create Token
+        Smart Contract -> Donor: Token ID
+        Award Requesting Entity -> Smart Contract: Create Token
+        Smart Contract -> Award Requesting Entity: Token ID
+        USAID -> Smart Contract: Create Token
+        Smart Contract -> USAID: Token ID
+        Recipient -> Smart Contract: Transfer Token
+        Smart Contract -> Recipient: Token ID
+        Recipient -> Polygon: Trade Token
+        Polygon -> Smart Contract: Polygon Tokens
+        Smart Contract -> Polygon: Transfer Polygon Tokens
+        Smart Contract -> Recipient: Payment Complete
+@enduml
+
+```
