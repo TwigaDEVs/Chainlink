@@ -6,6 +6,10 @@ pragma solidity ^0.8.10.0;
 
 contract FinancialTrackingSystem {
     // storing transaction details
+
+    // constructor() public payable{
+
+    // }
     struct Transaction {
         address donor;
         address usaid;
