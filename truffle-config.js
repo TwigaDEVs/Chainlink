@@ -1,3 +1,5 @@
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -89,6 +91,18 @@ module.exports = {
     //   timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
     //   skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     // },
+
+    polygon: {
+      provider: () =>
+        new HDWalletProvider(
+          "6197d54569f8caf798abbb50140597454865f8f26ee1b06928e54f1e897c8308",
+          `https://polygon-mumbai.g.alchemy.com/v2/ZVEQanF_YqAM2FSVjxSv_u0rC55vLCkX`
+        ),
+      network_id: 80001, // Goerli's id
+      confirmations: 2, // # of confirmations to wait between deployments. (default: 0)
+      timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
+    },
     //
     // Useful for private networks
     // private: {
