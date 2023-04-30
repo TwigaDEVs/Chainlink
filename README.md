@@ -1,5 +1,9 @@
 # Polygon Hackathon
 
+## About
+
+This project is about creating a system that tracks financial transactions between people who donate money and organizations who receive it to help in aids such  as food and medicine. This system provides a way for donors to see where their money is going and for organizations to keep track of all the money they receive. It's a digital financial tracking system that is transparent and secure.
+
 ## Environment Setup;
 
             *Solidity*
