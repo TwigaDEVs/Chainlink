@@ -115,24 +115,22 @@ contract FinancialTrackingSystem {
 
 
     // creating new disburse transactions
-    function createDisburseTransaction(address payable  _receiver_org, string memory _organization_purpose) external  payable  {
-        require(msg.value  > 0, "Donation amount must be greater than 0");
-
-        uint256 usaidAmount = msg.value - contractFee;
+    function createDisburseTransaction(address payable  _receiver_org, string memory _organization_purpose, uint _amount) external  {
+        
         
         DisburseTransaction memory newTransaction = DisburseTransaction({
             receiver_org: _receiver_org,
-            amount: msg.value,
+            amount: _amount,
             organization_purpose: _organization_purpose,
             timestamp: block.timestamp
         });
         disbursedTransactions.push(newTransaction);
 
-        payable(_receiver_org).transfer(usaidAmount);
+        _receiver_org.transfer(_amount);
 
         emit DisbursementAddedSuccess(
             _receiver_org,
-            msg.value,
+            _amount,
             _organization_purpose,
             block.timestamp
             
